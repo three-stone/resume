@@ -1,0 +1,43 @@
+最近准备换坑开始准备简历找了半天的模板每一个合适的最后决定自己动手生成简历
+这里我们用BOSS直聘举个栗子
+
+BOSS直聘上简历不能导出PDF？
+导出 的.docx 文件格式太丑
+那就进行下面的炒作吧
+
+操作步骤：
+
+打开简历页面
+windows 用户直接按 F12 打开控制台，苹果电脑直接（fn+F12）即可
+复制粘贴运行以下代码控制台即可
+$('body').css('background-color', '#fff')
+$('#wrap').html($('.resume-content').css('background-color', '#fff'))
+$('.update-time,.link-edit,.link-add').hide()
+$('.item-primary').css({'padding-bottom': '0px','padding-top': '16px' });
+$('.primary-info ~ .text-type').hide()
+$('.info-text h4').css('margin-bottom', '0px');
+$('.resume-box .item-primary').css('min-height', '86px')
+$('.info-text').css('width','1000')
+
+对应操作说明
+
+背景色 白色
+单独提出简历部分
+顶部最后更新时间 编辑/添加按钮隐藏
+把基本信息 放一行 上层padding修改
+隐藏内容
+去除下面margin
+设置下间距
+整体宽度 防止过大
+
+个人编辑了一个专业技能列表样式在HTML页面中 
+
+<div id="certification" class="resume-item resume-certification">
+  <div class="item-primary" style="padding-bottom: 0px;"><h3 class="title"> 专业技能 <a href="javascript:;" ka="add-certificate-click" class="link-add" style="display: none;"><svg class="icon-svg"><use xlink:href="#icon-svg-add"></use></svg><span>添加</span></a></h3><ul>
+    <li>熟练掌握 HTML/CSS/JavaScript 前端基本技术</li>
+    ...
+  </div>
+</div>
+然后 在控制台找到不需要模块的dom 点击鼠标右键 点击菜单 Delete element 删除对应的dom 
+windows电脑Ctrl + p  ,苹果电脑 command+p  目标打印机选择另存为PDF  更多设置　->　选项取消页眉和页脚，勾选背景图形  
+样式没有问题点击保存即可
